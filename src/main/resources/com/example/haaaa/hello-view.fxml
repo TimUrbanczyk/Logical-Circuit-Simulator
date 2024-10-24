@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.haaaa.HelloController">
+    <children>
+        <MenuBar VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="New" />
+                        <MenuItem mnemonicParsing="false" text="Open…" />
+                        <Menu mnemonicParsing="false" text="Open Recent" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                        <MenuItem mnemonicParsing="false" text="Save" />
+                        <MenuItem mnemonicParsing="false" text="Save As…" />
+                        <MenuItem mnemonicParsing="false" text="Revert" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Preferences…" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Quit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#delete_latest_gate" text="Delete latest gate" />
+                        <MenuItem mnemonicParsing="false" text="Delete Wires" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Language" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Select All" />
+                        <MenuItem mnemonicParsing="false" text="Unselect All" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Help yourself" />
+                    </items>
+                </Menu>
+                <Menu fx:id="Elements" mnemonicParsing="false" text="Elements">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#select_or" text="OR" />
+                        <MenuItem mnemonicParsing="false" onAction="#select_gate_And" text="AND" />
+                        <MenuItem mnemonicParsing="false" onAction="#select_not" text="NOT" />
+                        <MenuItem mnemonicParsing="false" text="BUFFER" />
+                  <MenuItem mnemonicParsing="false" onAction="#select_Low" text="LOW" />
+                  <MenuItem mnemonicParsing="false" onAction="#select_High" text="HIGH" />
+                  <MenuItem mnemonicParsing="false" onAction="#select_Powersource" text="POWERSOURCE" />
+                    </items>
+                </Menu>
+            <Menu fx:id="Se_Elements" mnemonicParsing="false" text="Sequential elements">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu fx:id="Wires" mnemonicParsing="false" text="Wires">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#select_wire_hard" text="Hard" />
+                  <MenuItem mnemonicParsing="false" onAction="#select_wire_smooth" text="Smooth" />
+              </items>
+            </Menu>
+            </menus>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+        </MenuBar>
+        <AnchorPane fx:id="pane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="676.0" prefWidth="1000.0" VBox.vgrow="ALWAYS">
+         <children>
+                <Canvas fx:id="canvas" height="3000.0" layoutX="-114.0" width="3000.0" />
+            <Label fx:id="gatelabel" layoutY="-1.0" prefHeight="17.0" prefWidth="133.0" text="Current gate: None" />
+            <Label fx:id="wirelabel" layoutX="121.0" layoutY="-1.0" text="Current wire: None" />
+            <ToggleButton fx:id="Mode_button" layoutY="105.0" mnemonicParsing="false" onAction="#change_mode" text="EDITMODE" />
+            <Label layoutY="87.0" text="Change mode" />
+            <Label layoutX="3.0" layoutY="25.0" text="Select number of inputs" />
+            <TextField fx:id="Inputfield" layoutX="1.0" layoutY="42.0" onAction="#change_n_inputs" onKeyPressed="#change_n_inputs" />
+            <Slider layoutX="6.0" layoutY="165.0" />
+         </children>
+        </AnchorPane>
+    </children>
+</VBox>
