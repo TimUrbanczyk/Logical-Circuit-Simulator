@@ -754,7 +754,7 @@ public class HelloController<T> implements Initializable {
             edit();
 
         }
-//s/
+//sd/
         mode_flag = !mode_flag;
     }//end of activate_draw
 
