@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
-public class HelloController<T> implements Initializable {
+public class Controller<T> implements Initializable {
 
     //Generic Arraylist, witch stores (and only stores) gates
     private ArrayList<GATE> Gates_List = new ArrayList<>();

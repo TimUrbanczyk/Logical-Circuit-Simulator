@@ -1,7 +1,6 @@
 package com.example.haaaa;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class GATE {
 
@@ -51,7 +50,7 @@ public class GATE {
             inputpoints[i].setX(this.x-7);
             inputpoints[i].setY(this.y +i*10);
             inputpoints[i].setState(0);
-            HelloController.getInputpoints_list().add(inputpoints[i]);
+            Controller.getInputpoints_list().add(inputpoints[i]);
 
         }
 
