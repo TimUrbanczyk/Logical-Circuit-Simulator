@@ -77,7 +77,6 @@
             <Label layoutY="87.0" text="Change mode" />
             <Label layoutX="3.0" layoutY="25.0" text="Select number of inputs" />
             <TextField fx:id="Inputfield" layoutX="1.0" layoutY="42.0" onAction="#change_n_inputs" onKeyPressed="#change_n_inputs" />
-            <Slider layoutX="6.0" layoutY="165.0" />
          </children>
         </AnchorPane>
     </children>

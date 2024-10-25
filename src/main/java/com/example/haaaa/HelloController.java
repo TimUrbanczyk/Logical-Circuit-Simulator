@@ -29,6 +29,9 @@ public class HelloController<T> implements Initializable {
     //Generic Arraylist, witch stores (and only stores) intputpoints for the wires to connect
     private static ArrayList<Input> Inputpoints_list = new ArrayList<>();
 
+    //temporary solution
+    private static ArrayList<Connection> Connection_list = new ArrayList<>();
+
     public static ArrayList<Input> getInputpoints_list()
     {return Inputpoints_list;}
 
@@ -721,7 +724,7 @@ public class HelloController<T> implements Initializable {
             if(b.getInputpoints()[i].getState() == 0) {
                 b.getInputpoints()[i].setState(a.getOutput_point().getState());
                 a.getOutput_point().setConnected_to(b.getInputpoints()[i]);
-
+                Connection_list.add(new Connection(a, b));
                 redraw();
                 return;
             }
@@ -735,7 +738,7 @@ public class HelloController<T> implements Initializable {
             }
         }
         redraw();
-    }
+    }//end of connection2
 
 
     @FXML
@@ -754,7 +757,7 @@ public class HelloController<T> implements Initializable {
             edit();
 
         }
-//sd/
+//sdd/
         mode_flag = !mode_flag;
     }//end of activate_draw
 
@@ -770,6 +773,12 @@ public class HelloController<T> implements Initializable {
                             if(Gates_List.get(i).getOutput_point().getState() == 1){Gates_List.get(i).getOutput_point().setState(2);}
                             else if(Gates_List.get(i).getOutput_point().getState() == 2){Gates_List.get(i).getOutput_point().setState(1);}
                             connect2(Gates_List.get(i),Gates_List.get(i).getOutput_point().getConnected_to().getGate());
+
+
+
+                            for(int k =0; k < Connection_list.size(); k++){
+                                connect2(Connection_list.get(k).get_connection()[0], Connection_list.get(k).get_connection()[1] );
+                            }
 
 
                         }
