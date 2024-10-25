@@ -185,7 +185,7 @@ public class Controller<T> implements Initializable {
                     break;
                 }
             }
-
+            gc.setStroke(Color.RED);
             //logic to choose and draw the selected gate
             switch(this.selected_gate){
                 case "AND":
