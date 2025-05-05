@@ -14,7 +14,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-
 public class Controller<T> implements Initializable {
 
     //Generic Arraylist, witch stores (and only stores) gates
@@ -71,9 +70,6 @@ public class Controller<T> implements Initializable {
 
     @FXML
     public Menu Elements;
-
-    @FXML
-    public Menu Se_Elements;
 
     @FXML
     public Menu Wires;
@@ -340,23 +336,15 @@ public class Controller<T> implements Initializable {
 
     private boolean test = false;
     protected void draw_line() {
-
-
-
         double[] previousCoordinates = new double[4];
 
         canvas.setOnMousePressed(event -> {
-
             Coordinates_Line[0] = event.getX();
             Coordinates_Line[1] = event.getY();
 
             check_first_point(Coordinates_Line[0], Coordinates_Line[1]);
 
-
-
             canvas.setOnMouseDragged(dragEvent -> {
-
-
                 if(!mode_flag){return;}
                 Coordinates_Line[2] = dragEvent.getX();
                 Coordinates_Line[3] = dragEvent.getY();
@@ -389,6 +377,14 @@ public class Controller<T> implements Initializable {
 
             // Set up mouse released event handler
             canvas.setOnMouseReleased(releaseEvent -> {
+                // Check if the mouse was actually dragged
+                if (Math.abs(releaseEvent.getX() - Coordinates_Line[0]) < 5 && 
+                    Math.abs(releaseEvent.getY() - Coordinates_Line[1]) < 5) {
+                    // Mouse wasn't dragged significantly, cancel the operation
+                    redraw();
+                    return;
+                }
+
                 redraw();
 
                 Coordinates_Line[2] = Help[0];
@@ -411,7 +407,6 @@ public class Controller<T> implements Initializable {
 
                 // Creating the WIRE object with the final coordinates
                 if (line_flag) {
-
                     if(test){
                         GATE[] c = new GATE[2];
                         WIRE newWire = new WIRE(true, Coordinates_Line.clone());
@@ -419,7 +414,6 @@ public class Controller<T> implements Initializable {
 
                         for(int i = 0; i < Gates_List.size(); i++){
                             if(o == Gates_List.get(i).getOutput_point()) {
-
                                 c[0] = Gates_List.get(i);
                             }
                         }
@@ -427,12 +421,11 @@ public class Controller<T> implements Initializable {
                        for(int i =0; i < Inputpoints_list.size(); i++){
                            if(liegtImKreis(newWire.getCoords()[2],newWire.getCoords()[3],
                            Inputpoints_list.get(i).getX(),Inputpoints_list.get(i).getY(),7)) {
-
                                c[1] = Inputpoints_list.get(i).getGate();
-                               if(mode_flag){connect(c[0], c[1]);
+                               if(mode_flag && c[0] != c[1]){
+                                   connect(c[0], c[1]);
                                }
                            }
-
                        }
                     }
                     redraw();
@@ -440,10 +433,6 @@ public class Controller<T> implements Initializable {
                 }
             });
         });
-
-
-
-
     }//end of draw_line
 
 
@@ -714,7 +703,6 @@ public class Controller<T> implements Initializable {
         change_n_inputs();
         Wires.setVisible(false);
         Elements.setVisible(false);
-        Se_Elements.setVisible(false);
 
 
     }
@@ -747,12 +735,10 @@ public class Controller<T> implements Initializable {
         if(!mode_flag){
             Wires.setVisible(true);
             Elements.setVisible(true);
-            Se_Elements.setVisible(true);
             Mode_button.setText("DRAWMODE");
         }else{
             Wires.setVisible(false);
             Elements.setVisible(false);
-            Se_Elements.setVisible(false);
             Mode_button.setText("EDITMODE");
             edit();
 

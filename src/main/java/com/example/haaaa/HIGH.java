@@ -1,6 +1,6 @@
 package com.example.haaaa;
 
-public class HIGH extends GATE{
+public class HIGH extends GATE {
 
     private double x;
     private double y;
@@ -13,9 +13,9 @@ public class HIGH extends GATE{
         outputpoint.setX(x + 31);
         outputpoint.setY(y + 15);
     }
+    
     @Override
     public Output getOutput_point() {
         return this.outputpoint;
     }
-
 }

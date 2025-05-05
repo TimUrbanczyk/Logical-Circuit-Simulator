@@ -20,7 +20,6 @@ public class GATE {
         createInputpoints(input_points_number,this);
     }
 
-
     public double get_x() {
         return this.x;
     }
@@ -37,8 +36,6 @@ public class GATE {
         return this.inputpoints;
     }
 
-
-
     public int getInput_points_number() {
         return this.input_points_number;
     }
@@ -51,19 +48,18 @@ public class GATE {
             inputpoints[i].setY(this.y +i*10);
             inputpoints[i].setState(0);
             Controller.getInputpoints_list().add(inputpoints[i]);
-
         }
-
     }
 
-    public void add_pointer(GATE gate)
-    {points_to.add(gate);}
+    public void add_pointer(GATE gate) {
+        points_to.add(gate);
+    }
 
-    public ArrayList<GATE> getPoints_to()
-    {return this.points_to;}
+    public ArrayList<GATE> getPoints_to() {
+        return this.points_to;
+    }
 
-    public int logic(){
+    public int logic() {
         return 0;
-    }//end of logic
-
+    }
 }
