@@ -26,6 +26,9 @@ A simple digital logic simulator that lets you build and test circuits using bas
 ## How It Works
 
 ### Draw Mode (Default)
+<img src="src/main/resources/imgs/lcs1.png" width="400" alt="Draw Mode"/>
+*Place components and create connections by clicking and dragging*
+
 1. Click on the component you want to add (switch or gate)
 2. Click anywhere on the workspace to place it
 3. To connect components:
@@ -36,12 +39,19 @@ A simple digital logic simulator that lets you build and test circuits using bas
    - Click on a component or wire to remove it
 
 ### Edit Mode
+<img src="src/main/resources/imgs/lcs2.png" width="400" alt="Edit Mode"/>
+*Toggle switches and watch power flow through your circuit*
+
 1. Press the Edit Mode button to switch modes
 2. Click on switches to toggle their power state
 3. Watch how the power flows through your circuit:
    - Powered connections show as highlighted
    - Gates process their inputs and update outputs instantly
 4. Press Edit Mode again to return to Draw Mode
+
+## Example Circuit
+<img src="src/main/resources/imgs/lcs3.png" width="400" alt="Complex Circuit Example"/>
+*A complex circuit showing multiple gates and connections working together*
 
 ## Tips
 - Start with power sources (switches)
